@@ -1,4 +1,4 @@
-# Hamrah TV
+# Deutsch Live App
 
 <img src="screenshots/screenshot1.png" alt="Screenshot 1" width="270" height="602"><img src="screenshots/screenshot2.png" alt="Screenshot 2" width="270" height="602"><img src="screenshots/screenshot3.png" alt="Screenshot 3" width="270" height="602">
 
