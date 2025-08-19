@@ -1,32 +1,18 @@
 [
   {
-    "channelName": "MBC Persia",
-    "link": "https://shls-mbcpersia-prod-dub.shahid.net/out/v1/bdc7cd0d990e4c54808632a52c396946/index.m3u8",
-    "source": "iptv",
-    "contactpage": "http://www.mbc.net/en/corporate/channels/mbc-persia.html"
-  },
-
-  {
-    "channelName": "Persiana Cinema",
-    "link": "https://cinehls.persiana.live/hls/stream.m3u8",
-    "source": "iptv",
-    "contactpage": "https://www.bbc.co.uk/contact/questions/getting-in-touch/contact-bbc"
-  },
-
-  {
     "channelName": "KIKA",
     "link": "https://kikageohls.akamaized.net/hls/live/2022693/livetvkika_de/master.m3u8",
     "source": "iptv",
     "contactpage": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/Rbb_Fernsehen_Logo_2017.08.svg/640px-Rbb_Fernsehen_Logo_2017.08.svg.png"
   },
   {
-    "channelName": "Persian Film",
-    "link": "https://pfilmhls.wns.live/hls/stream.m3u8",
+    "channelName": "WOWZA",
+    "link": "https://cdn3.wowza.com/1/MHFtazJReW5rOFhP/N2NWNDZ2/hls/live/playlist.m3u8",
     "source": "iptv",
     "contactpage": "https://www.cheddar.com/media/about-cheddar/"
   },
   {
-    "channelName": "4U ",
+    "channelName": "4U TV",
     "link": "https://hls.4utv.live/hls/stream.m3u8",
     "source": "iptv",
     "contactpage": "https://help.cnbc.com/contact/"
@@ -43,16 +29,36 @@
     "source": "iptv",
     "contactpage": "https://corporate.dw.com/en/contact/s-30606"
   },
+
   {
-    "channelName": "شبکه4 سیما",
-    "link": "https://lb-cdn.sepehrtv.ir/securelive3/tv4sd/tv4sd.m3u8?s=IZSh0mmLXep_a7J1I7NrNg&t=1755190992",
+    "channelName": "VOX DEUTSCH TV LIVE",
+    "link": "https://viamotionhsi.netplus.ch/live/eds/vox/browser-HLS8/vox.m3u8",
     "source": "iptv",
-    "contactpage": "https://www.euronews.com/contact"
+    "contactpage": "https://globalnews.ca/pages/contact-us/"
   },
 
   {
-    "channelName": "FX HD",
-    "link": "https://fxtvhls.wns.live/hls/stream.m3u8",
+    "channelName": "DEUTSCHE 1",
+    "link": "https://daserste-live.ard-mcdn.de/daserste/live/hls/de/master.m3u8",
+    "source": "iptv",
+    "contactpage": "https://www.bbc.co.uk/contact/questions/getting-in-touch/contact-bbc"
+  },
+  {
+    "channelName": "DEUTSCHE 2",
+    "link": "https://muc3.iptv-playoutcenter.de/dokusat/dokusat1/playlist.m3u8",
+    "source": "iptv",
+    "contactpage": "https://www.dokusat.com/contact"
+  },
+
+  {
+    "channelName": "DEUTSCHE 3",
+    "link": "https://wdw.iptv-playoutcenter.de/wdw/wdw1/playlist.m3u8",
+    "source": "iptv",
+    "contactpage": "https://globalnews.ca/pages/contact-us/"
+  },
+  {
+    "channelName": "DEUTSCHE 4",
+    "link": "https://lilo.iptv-playoutcenter.de/lilo/lilo-sat1/playlist.m3u8",
     "source": "iptv",
     "contactpage": "https://globalnews.ca/pages/contact-us/"
   }
