@@ -190,7 +190,7 @@ class _LoadingPageState extends State<LoadingPage> {
 
   static const String _localJsonPath = 'assets/data/channels.json';
   static const String _remoteJsonUrl =
-      'https://raw.githubusercontent.com/aldrinzigmundv/deutschliveapp/master/assets/data/channels.json';
+      'https://raw.githubusercontent.com/madmaxmehdi44/deutschliveapp/master/assets/data/channels.json';
 
   String _bottomMessage = 'Deutschland LIVE APP';
 
