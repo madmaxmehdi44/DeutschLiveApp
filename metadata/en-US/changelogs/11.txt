@@ -1,1 +1,1 @@
-* Fixed a bug causing TV interface to appear on phones
+* Fixed a bug causing  interface to appear on phones

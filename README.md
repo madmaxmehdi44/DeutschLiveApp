@@ -4,22 +4,22 @@
 
 [<img src="badges/GetItOnGooglePlay_Badge_Web_color_English.png"
      alt="Get it on Google Play"
-     height="63">](https://play.google.com/store/apps/details?id=io.github.aldrinzigmundv.hamrahtv)
+     height="63">](https://play.google.com/store/apps/details?id=io.github.aldrinzigmundv.deutschliveapp)
 [<img src="badges/IzzyOnDroid2.png"
      alt="Get it on Google Play"
-     height="63">](https://apt.izzysoft.de/packages/io.github.aldrinzigmundv.hamrahtv/)
+     height="63">](https://apt.izzysoft.de/packages/io.github.aldrinzigmundv.deutschliveapp/)
 
-Or download the latest APK from the [Releases Section](https://github.com/aldrinzigmundv/hamrahtv/releases/latest)
+Or download the latest APK from the [Releases Section](https://github.com/aldrinzigmundv/deutschliveapp/releases/latest)
 
 **This app is powered by [aldrinzigmund.com](https://www.aldrinzigmund.com/)**
 
-## What is Hamrah TV?
+## What is Deutsch Live APP?
 
-A free and open-source TV news app, inspired by Linux Mint's Hypnotix.
+A free and open-source  news app, inspired by Linux Mint's Hypnotix.
 
-The app features English news channels from all around the world, sourced from Free-TV/IPTV on GitHub, just like Hypnotix, to ensure that it only includes free, legal and publicly available content.
+The app features English news channels from all around the world, sourced from Free-/IPTV on GitHub, just like Hypnotix, to ensure that it only includes free, legal and publicly available content.
 
-For news channel suggestions, please file an issue on both Free-TV/IPTV and our GitHub repo. I'll include suggested news channels that meet our criteria as soon as Free-TV/IPTV adds them to their list.
+For news channel suggestions, please file an issue on both Free-/IPTV and our GitHub repo. I'll include suggested news channels that meet our criteria as soon as Free-/IPTV adds them to their list.
 
 ## Features
 * Free and open-source

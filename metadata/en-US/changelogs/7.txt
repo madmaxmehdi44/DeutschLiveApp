@@ -1,2 +1,2 @@
-* Added new channels from Free-TV/IPTV
+* Added new channels from Free-/IPTV
 * Fixed issue with Contact Me page showing an incorrect message

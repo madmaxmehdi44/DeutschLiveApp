@@ -1,1 +1,1 @@
-* Resolved issue preventing the Hamrah TV app from appearing in TV launchers
+* Resolved issue preventing the Deutsch Live APP app from appearing in  launchers

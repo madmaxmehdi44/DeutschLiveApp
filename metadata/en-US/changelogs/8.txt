@@ -1,2 +1,2 @@
-* Updated Channels from Free-TV/IPTV
+* Updated Channels from Free-/IPTV
 * Added an Update Notifier

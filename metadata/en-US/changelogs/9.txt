@@ -1,2 +1,2 @@
-* Added Google and Android TV compatibility
-* Updated channels from Free-TV/IPTV
+* Added Google and Android  compatibility
+* Updated channels from Free-/IPTV

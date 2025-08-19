@@ -17,11 +17,11 @@ class UpdateManager {
     }
   }
 
-  getUpdateMessage() {
-    return "نسخه ی به روز همراه TV ";
+  String getUpdateMessage() {
+    return "نسخه ی به روز همراه  ";
   }
 
-  removeUpdate() async {
+  Future<void> removeUpdate() async {
     storageProvider.storage.put('lastVersion', packageInfo.version);
   }
 }

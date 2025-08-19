@@ -1,2 +1,2 @@
-* Updated channels from Free-TV/IPTV
+* Updated channels from Free-/IPTV
 * Minor UI improvement

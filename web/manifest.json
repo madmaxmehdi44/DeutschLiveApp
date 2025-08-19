@@ -1,6 +1,6 @@
 {
-    "name": "hamrahtv",
-    "short_name": "hamrahtv",
+    "name": "deutschliveapp",
+    "short_name": "deutschliveapp",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#hexcode",

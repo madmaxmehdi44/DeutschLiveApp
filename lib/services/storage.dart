@@ -16,6 +16,6 @@ class StorageProvider {
     Hive.registerAdapter(ChannelAdapter());
     Hive.registerAdapter(SourceAdapter());
 
-    storage = await Hive.openBox('hamrahtvBox');
+    storage = await Hive.openBox('deutschliveappBox');
   }
 }

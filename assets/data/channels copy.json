@@ -28,7 +28,7 @@
     "image": "https://example.com/images/persian_film.png"
 },
 {
-    "channelName": "4U TV",
+    "channelName": "4U ",
     "link": "https://hls.4utv.live/hls/stream.m3u8",
     "source": "iptv",
     "contactpage": "https://help.cnbc.com/contact/",
@@ -210,14 +210,14 @@
     "image": "https://example.com/images/nbc_news_now.png"
 },
 {
-    "channelName": "Newsmax TV",
+    "channelName": "Newsmax ",
     "link": "https://nmxlive.akamaized.net/hls/live/529965/Live_1/index.m3u8",
     "source": "iptv",
     "contactpage": "https://www.newsmax.com/contact/",
     "image": "https://example.com/images/newsmax_tv.png"
 },
 {
-    "channelName": "Reuters TV",
+    "channelName": "Reuters ",
     "link": "https://amg00453-reuters-amg00453c1-xumo-us-2073.playouts.now.amagi.tv/reuters-reuters-hls/playlist.m3u8",
     "source": "iptv",
     "contactpage": "https://www.reuters.com/info-pages/contact-us/",

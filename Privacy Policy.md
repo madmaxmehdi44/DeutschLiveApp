@@ -1,6 +1,6 @@
 **Privacy Policy (PlayStore version only)**
 
-This privacy policy applies to the Hamrah TV app (hereby referred to as "Application") for mobile devices that was created by Aldrin Zigmund Cortez Velasco (hereby referred to as "Service Provider") as an Ad Supported service. This service is intended for use "AS IS".
+This privacy policy applies to the Deutsch Live APP app (hereby referred to as "Application") for mobile devices that was created by Aldrin Zigmund Cortez Velasco (hereby referred to as "Service Provider") as an Ad Supported service. This service is intended for use "AS IS".
 
 **Information Collection and Use**
 
