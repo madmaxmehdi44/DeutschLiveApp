@@ -1,15 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:deutschliveapp/services/storage.dart';
 import 'package:video_player/video_player.dart';
+import 'package:simple_pip_mode/simple_pip.dart';
 import 'package:wakelock_plus/wakelock_plus.dart';
-import 'package:flutter_widget_recorder/flutter_widget_recorder.dart';
-// import 'package:flutter_widget_recorder_example/camera_screen.dart';
-// import 'package:share_plus/share_plus.dart';
+import 'package:deutschliveapp/services/storage.dart';
 
 class ChannelPageIPTV extends StatefulWidget {
   const ChannelPageIPTV({super.key, required this.index, required this.isTV});
-
   final int index;
   final bool isTV;
 
@@ -17,28 +14,32 @@ class ChannelPageIPTV extends StatefulWidget {
   State<ChannelPageIPTV> createState() => _ChannelPageIPTVState();
 }
 
-class _ChannelPageIPTVState extends State<ChannelPageIPTV> {
+class _ChannelPageIPTVState extends State<ChannelPageIPTV>
+    with WidgetsBindingObserver {
+  late VideoPlayerController _controller;
+  final _pip = SimplePip();
   late StorageProvider storageProvider;
   late int index;
   late bool isTV;
-  late VideoPlayerController _videoPlayerController;
-  bool _appBarVisibility = true;
-  final WidgetRecorderController _controllerScreenRecorder =
-      WidgetRecorderController(targetFps: 30, isWithTicker: true);
 
   @override
   void initState() {
     super.initState();
+    WidgetsBinding.instance.addObserver(this);
     index = widget.index;
     isTV = widget.isTV;
     storageProvider = StorageProvider();
     WakelockPlus.enable();
-    _setupVideoPlayerController();
+    _initializeVideo();
   }
 
-  void _setupVideoPlayerController() {
-    _videoPlayerController = VideoPlayerController.networkUrl(
-      Uri.parse(storageProvider.storage.get('channelList')[index].link),
+  void _initializeVideo() {
+    final channelList = storageProvider.storage.get('channelList');
+    final channel = channelList[index];
+    final String link = channel.link;
+
+    _controller = VideoPlayerController.networkUrl(
+      Uri.parse(link),
       videoPlayerOptions: VideoPlayerOptions(
         allowBackgroundPlayback: false,
         mixWithOthers: true,
@@ -56,37 +57,16 @@ class _ChannelPageIPTVState extends State<ChannelPageIPTV> {
       formatHint: VideoFormat.hls,
     )..initialize().then((_) {
         setState(() {});
-        // _videoPlayerController.value = VideoPlayerValue(duration: Duration());
-        _videoPlayerController.play();
+        _controller.play();
       });
-  }
-
-  void _hideUnhideAppBar() {
-    if (!isTV) {
-      setState(() {
-        _appBarVisibility = !_appBarVisibility;
-        if (!_appBarVisibility) {
-          SystemChrome.setEnabledSystemUIMode(SystemUiMode.leanBack);
-          SystemChrome.setPreferredOrientations([
-            DeviceOrientation.landscapeLeft,
-            DeviceOrientation.landscapeRight,
-          ]);
-        } else {
-          SystemChrome.setEnabledSystemUIMode(SystemUiMode.edgeToEdge,
-              overlays: [SystemUiOverlay.top, SystemUiOverlay.bottom]);
-          SystemChrome.setPreferredOrientations(DeviceOrientation.values);
-        }
-      });
-    }
   }
 
   @override
   void dispose() {
+    WidgetsBinding.instance.removeObserver(this);
+    _controller.pause();
+    _controller.dispose();
     WakelockPlus.disable();
-    _videoPlayerController.pause();
-    _videoPlayerController.dispose();
-    _controllerScreenRecorder.dispose();
-    // WakelockPlus.enable();
     if (!isTV) {
       SystemChrome.setEnabledSystemUIMode(SystemUiMode.edgeToEdge,
           overlays: [SystemUiOverlay.top, SystemUiOverlay.bottom]);
@@ -95,71 +75,66 @@ class _ChannelPageIPTVState extends State<ChannelPageIPTV> {
   }
 
   @override
+  void didChangeAppLifecycleState(AppLifecycleState state) {
+    if (state == AppLifecycleState.paused) {
+      _enterPipMode();
+    }
+  }
+
+  Future<void> _enterPipMode() async {
+    final isAvailable = await SimplePip.isPipAvailable;
+    if (isAvailable) {
+      await _pip.enterPipMode();
+    }
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: (isTV)
-          ? null
-          : _appBarVisibility
-              ? AppBar(
-                  title: Text(storageProvider.storage
-                      .get('channelList')[index]
-                      .channelName),
-                  titleTextStyle: const TextStyle(
-                      color: Colors.black26, fontWeight: FontWeight.bold),
-                  centerTitle: true,
-                  backgroundColor: Colors.redAccent[900],
-                  foregroundColor: Colors.amberAccent,
-                )
-              : null,
-      backgroundColor: Colors.transparent,
-      body: Center(
-        child: GestureDetector(
-          onTap: _hideUnhideAppBar,
-          child: Center(
-            child: SizedBox(height: 300,
-              child: Padding(
-                padding: const EdgeInsets.all(0.0),
-                child: _videoPlayerController.value.isInitialized
-                    ? AspectRatio(
-                        // aspectRatio: _videoPlayerController.value.aspectRatio,
-                        aspectRatio:
-                            (_appBarVisibility ? 11.6 / 11.5 : 16.2 / 7.475),
-                        child: Stack(
-                          fit: StackFit.passthrough,
-                          alignment: AlignmentDirectional.bottomStart,
-                          children: [
-                            VideoPlayer(_videoPlayerController)
-                              ..controller.setVolume(0.7),
-                          ],
-                        ),
-                      )
-                    : const CircularProgressIndicator.adaptive(),
-                // VideoProgressIndicator(
-                //   _videoPlayerController,
-                //   allowScrubbing: true,
-                //   colors: VideoProgressColors(
-                //     backgroundColor: Colors.indigo,
-                //     playedColor: Colors.pink,
-                //   ),
-                // ),
-                // ],
-                // ),
+      backgroundColor: Colors.black,
+      body: SafeArea(
+        child: Stack(
+          children: [
+            Center(
+              child: _controller.value.isInitialized
+                  ? AspectRatio(
+                      aspectRatio: _controller.value.aspectRatio,
+                      child: VideoPlayer(_controller),
+                    )
+                  : const CircularProgressIndicator(color: Colors.white),
+            ),
+            Positioned(
+              bottom: 24,
+              left: 24,
+              right: 24,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  _controlButton(Icons.play_arrow, () => _controller.play()),
+                  _controlButton(Icons.pause, () => _controller.pause()),
+                  _controlButton(Icons.picture_in_picture, _enterPipMode),
+                ],
               ),
             ),
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget _controlButton(IconData icon, VoidCallback onPressed) {
+    return ClipRRect(
+      borderRadius: BorderRadius.circular(12),
+      child: Material(
+        color: Colors.white.withOpacity(0.1),
+        child: InkWell(
+          onTap: onPressed,
+          child: Padding(
+            padding: const EdgeInsets.all(12),
+            child: Icon(icon, color: Colors.white, size: 28),
           ),
         ),
       ),
-      floatingActionButton: (isTV)
-          ? (MediaQuery.of(context).orientation == Orientation.landscape)
-              ? null
-              : null
-          : (MediaQuery.of(context).orientation == Orientation.portrait)
-              ? Text(
-                  " ${storageProvider.storage.get('channelList')[index].channelName} پخش زنده ی شبکه ی",
-                  textAlign: TextAlign.start,
-                  style: const TextStyle(color: Colors.redAccent),
-                )
-              : null,
     );
   }
 }

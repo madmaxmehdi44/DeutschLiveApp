@@ -9,57 +9,52 @@
     "channelName": "WOWZA",
     "link": "https://cdn3.wowza.com/1/MHFtazJReW5rOFhP/N2NWNDZ2/hls/live/playlist.m3u8",
     "source": "iptv",
-    "contactpage": "https://www.cheddar.com/media/about-cheddar/"
+    "contactpage": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/Rbb_Fernsehen_Logo_2017.08.svg/640px-Rbb_Fernsehen_Logo_2017.08.svg.png"
   },
-  {
-    "channelName": "4U TV",
-    "link": "https://hls.4utv.live/hls/stream.m3u8",
-    "source": "iptv",
-    "contactpage": "https://help.cnbc.com/contact/"
-  },
+
   {
     "channelName": "SCHLAGER DELUXE Deutsche",
     "link": "https://sdn-global-live-streaming-packager-cache.3qsdn.com/26658/26658_264_live.m3u8",
     "source": "iptv",
-    "contactpage": "https://help.cnn.com/us/Feedback"
+    "contactpage": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/Rbb_Fernsehen_Logo_2017.08.svg/640px-Rbb_Fernsehen_Logo_2017.08.svg.png"
   },
   {
     "channelName": "ARD Alpha",
     "link": "https://mcdn.br.de/br/fs/ard_alpha/hls/de/master.m3u8",
     "source": "iptv",
-    "contactpage": "https://corporate.dw.com/en/contact/s-30606"
+    "contactpage": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/Rbb_Fernsehen_Logo_2017.08.svg/640px-Rbb_Fernsehen_Logo_2017.08.svg.png"
   },
 
   {
     "channelName": "VOX DEUTSCH TV LIVE",
     "link": "https://viamotionhsi.netplus.ch/live/eds/vox/browser-HLS8/vox.m3u8",
     "source": "iptv",
-    "contactpage": "https://globalnews.ca/pages/contact-us/"
+    "contactpage": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/Rbb_Fernsehen_Logo_2017.08.svg/640px-Rbb_Fernsehen_Logo_2017.08.svg.png"
   },
 
   {
     "channelName": "DEUTSCHE 1",
     "link": "https://daserste-live.ard-mcdn.de/daserste/live/hls/de/master.m3u8",
     "source": "iptv",
-    "contactpage": "https://www.bbc.co.uk/contact/questions/getting-in-touch/contact-bbc"
+    "contactpage": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/Rbb_Fernsehen_Logo_2017.08.svg/640px-Rbb_Fernsehen_Logo_2017.08.svg.png"
   },
   {
     "channelName": "DEUTSCHE 2",
     "link": "https://muc3.iptv-playoutcenter.de/dokusat/dokusat1/playlist.m3u8",
     "source": "iptv",
-    "contactpage": "https://www.dokusat.com/contact"
+    "contactpage": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/Rbb_Fernsehen_Logo_2017.08.svg/640px-Rbb_Fernsehen_Logo_2017.08.svg.png"
   },
 
   {
     "channelName": "DEUTSCHE 3",
     "link": "https://wdw.iptv-playoutcenter.de/wdw/wdw1/playlist.m3u8",
     "source": "iptv",
-    "contactpage": "https://globalnews.ca/pages/contact-us/"
+    "contactpage": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/Rbb_Fernsehen_Logo_2017.08.svg/640px-Rbb_Fernsehen_Logo_2017.08.svg.png"
   },
   {
     "channelName": "DEUTSCHE 4",
     "link": "https://lilo.iptv-playoutcenter.de/lilo/lilo-sat1/playlist.m3u8",
     "source": "iptv",
-    "contactpage": "https://globalnews.ca/pages/contact-us/"
+    "contactpage": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/Rbb_Fernsehen_Logo_2017.08.svg/640px-Rbb_Fernsehen_Logo_2017.08.svg.png"
   }
 ]

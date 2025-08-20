@@ -50,7 +50,7 @@ class _ContactPageState extends State<ContactPage> {
                 const Padding(
                   padding: EdgeInsets.fromLTRB(18.0, 36.0, 18.0, 18.0),
                   child: SelectableText(
-                    'تلوزیون همراه',
+                    'Deutsches Mobilfunkfernsehen',
                     style:
                         TextStyle(fontSize: 18.0, fontWeight: FontWeight.bold),
                     textAlign: TextAlign.center,

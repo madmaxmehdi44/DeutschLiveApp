@@ -1,21 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:deutschliveapp/services/storage.dart';
 import 'package:deutschliveapp/services/routing.dart';
-
-import 'package:hive_flutter/hive_flutter.dart';
 import 'package:deutschliveapp/widgets/channellistitem.dart';
-import 'package:deutschliveapp/widgets/homepageswidgets/topnavbar.dart'; // Ensure TopNavBar is imported
-
-//AdmobCode
-// import 'package:google_mobile_ads/google_mobile_ads.dart';
-//AdmobCode
+import 'package:deutschliveapp/widgets/homepageswidgets/topnavbar.dart';
+import 'package:deutschliveapp/models/channel.dart';
+import 'package:hive_flutter/hive_flutter.dart'; // اطمینان از ایمپورت مدل کانال
 
 class ChannelListPage extends StatefulWidget {
-  const ChannelListPage({
-    super.key,
-    required this.isTV,
-  });
-
+  const ChannelListPage({super.key, required this.isTV});
   final bool isTV;
 
   @override
@@ -23,13 +15,9 @@ class ChannelListPage extends StatefulWidget {
 }
 
 class _ChannelListPageState extends State<ChannelListPage> {
-  StorageProvider storageProvider = StorageProvider();
+  final StorageProvider storageProvider = StorageProvider();
   late bool isTV;
   int _focusedIndex = 1;
-
-  //AdmobCode
-  // BannerAd? _bannerAd;
-  //AdmobCode
 
   void _updateFocus(int newIndex) {
     if (mounted) {
@@ -39,163 +27,110 @@ class _ChannelListPageState extends State<ChannelListPage> {
     }
   }
 
-  //AdmobCode
-  // final adUnitId = "ca-app-pub-4100835771816662/1511860042";
-  // void _loadAd() {
-  //   _bannerAd = BannerAd(
-  //     adUnitId: adUnitId,
-  //     request: const AdRequest(),
-  //     size: AdSize.banner,
-  //     listener: BannerAdListener(
-  //       onAdLoaded: (ad) {
-  //         debugPrint('$ad loaded.');
-  //         if (mounted) {
-  //           setState(() {});
-  //         }
-  //       },
-  //       onAdFailedToLoad: (ad, err) {
-  //         debugPrint('BannerAd failed to load: $err');
-  //         ad.dispose();
-  //       },
-  //     ),
-  //   )..load();
-  // }
-  //AdmobCode
-
   Icon _favoriteIcon(String channelName) {
-    if (!storageProvider.storage
-        .get('favoritedChannelList', defaultValue: []).contains(channelName)) {
-      return Icon(
-        Icons.star_border,
-        color: const Color.fromARGB(212, 189, 194, 38),
-      );
-    } else {
-      return Icon(
-        Icons.star,
-        color: Colors.indigo[900],
-      );
-    }
+    final List<String> favorites = storageProvider.storage
+        .get('favoritedChannelList', defaultValue: <String>[]).cast<String>();
+
+    final bool isFavorited = favorites.contains(channelName);
+    return Icon(
+      isFavorited ? Icons.star : Icons.star_border,
+      color: isFavorited
+          ? Colors.indigo[900]
+          : const Color.fromARGB(212, 189, 194, 38),
+    );
   }
 
   void _favoriteChange(int index) async {
-    List<String> favoritedChannels = storageProvider.storage
-        .get('favoritedChannelList', defaultValue: []).cast<String>();
-    String selectedChannel =
-        storageProvider.storage.get('channelList')[index].channelName;
+    final List<Channel> channelList = storageProvider.storage
+        .get('channelList', defaultValue: <Channel>[]).cast<Channel>();
 
-    if (favoritedChannels.contains(selectedChannel)) {
-      favoritedChannels.remove(selectedChannel);
-      await storageProvider.storage
-          .put('favoritedChannelList', favoritedChannels);
+    final String selectedChannel = channelList[index].channelName;
+
+    final List<String> favorites = storageProvider.storage
+        .get('favoritedChannelList', defaultValue: <String>[]).cast<String>();
+
+    if (favorites.contains(selectedChannel)) {
+      favorites.remove(selectedChannel);
     } else {
-      favoritedChannels.add(selectedChannel);
-      favoritedChannels.sort((a, b) => a.compareTo(b));
-      await storageProvider.storage
-          .put('favoritedChannelList', favoritedChannels);
+      favorites.add(selectedChannel);
+      favorites.sort();
     }
+
+    await storageProvider.storage.put('favoritedChannelList', favorites);
+    setState(() {});
   }
 
   void _goToChannel(int index) {
     goToChannelPageIPTV(context: context, index: index, isTV: isTV);
   }
 
-  void _updateScreen() {
-    if (mounted) {
-      setState(() {});
-    }
+  Future<void> _refreshChannelList() async {
+    await Future.delayed(const Duration(milliseconds: 500));
+    setState(() {});
   }
 
   @override
   void initState() {
     super.initState();
     isTV = widget.isTV;
-
-    //AdmobCode
-    // _loadAd();
-    //AdmobCode
-
-    WidgetsBinding.instance.addPostFrameCallback((_) async {
-      storageProvider.storage.listenable().addListener(_updateScreen);
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      storageProvider.storage.listenable().addListener(() => setState(() {}));
     });
   }
 
   @override
   Widget build(BuildContext context) {
+    final List<Channel> channelList = storageProvider.storage
+        .get('channelList', defaultValue: <Channel>[]).cast<Channel>();
+
     return Scaffold(
       drawerEnableOpenDragGesture: false,
       appBar: AppBar(
         title: const Text('Kanalliste'),
       ),
-      body: SingleChildScrollView(
-        child: Stack(
-          children: [
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.stretch,
-              children: [
-                TopNavBar(
-                  focusedIndex: _focusedIndex,
-                  updateFocus: _updateFocus,
-                  isTV: isTV,
-                ),
+      body: RefreshIndicator(
+        onRefresh: _refreshChannelList,
+        color: Colors.indigo,
+        backgroundColor: Colors.white,
+        displacement: 10,
+        child: CustomScrollView(
+          physics: const BouncingScrollPhysics(),
+          slivers: [
+            SliverToBoxAdapter(
+              child: TopNavBar(
+                focusedIndex: _focusedIndex,
+                updateFocus: _updateFocus,
+                isTV: isTV,
+              ),
+            ),
+            SliverList(
+              delegate: SliverChildBuilderDelegate(
+                (context, index) {
+                  final Channel channel = channelList[index];
+                  final bool isChannelFocused = _focusedIndex == index + 3;
+                  final bool isStarFocused =
+                      _focusedIndex == index + 3 + channelList.length;
 
-                //AdmobCode
-                // (_bannerAd != null)
-                //  ? Align(
-                //         alignment: Alignment.bottomCenter,
-                //         child: SafeArea(
-                //           child: SizedBox(
-                //             width: _bannerAd!.size.width.toDouble(),
-                //             height: _bannerAd!.size.height.toDouble(),
-                //             child: AdWidget(ad: _bannerAd!),
-                //           ),
-                //         ),
-                //       )
-                //     : SizedBox(),
-                //AdmobCode
-
-                ListView.builder(
-                  shrinkWrap: true,
-                  physics: const NeverScrollableScrollPhysics(),
-                  itemCount: storageProvider.storage
-                      .get('channelList', defaultValue: []).length,
-                  itemBuilder: (context, index) {
-                    bool isChannelFocused = _focusedIndex == index + 3;
-                    bool isStarFocused = _focusedIndex ==
-                        index +
-                            3 +
-                            storageProvider.storage.get('channelList').length;
-
-                    return ChannelListItem(
-                      channelName: storageProvider.storage
-                          .get('channelList')[index]
-                          .channelName,
-                      source: storageProvider.storage
-                          .get('channelList')[index]
-                          .source,
-                      isFocused: isChannelFocused,
-                      isFavoriteFocused: isStarFocused,
-                      onChannelSelect: () => _goToChannel(index),
-                      onFavoriteSelect: () => _favoriteChange(index),
-                      onChannelFocus: (isFocused) {
-                        if (isFocused) _updateFocus(index + 3);
-                      },
-                      onFavoriteFocus: (isFocused) {
-                        if (isFocused) {
-                          _updateFocus((index +
-                                  3 +
-                                  storageProvider.storage
-                                      .get('channelList')
-                                      .length)
-                              .toInt());
-                        }
-                      },
-                      favoriteIcon: _favoriteIcon(storageProvider.storage
-                          .get('channelList')[index]
-                          .channelName),
-                    );
-                  },
-                ),
-              ],
+                  return ChannelListItem(
+                    channelName: channel.channelName,
+                    source: channel.source,
+                    isFocused: isChannelFocused,
+                    isFavoriteFocused: isStarFocused,
+                    onChannelSelect: () => _goToChannel(index),
+                    onFavoriteSelect: () => _favoriteChange(index),
+                    onChannelFocus: (isFocused) {
+                      if (isFocused) _updateFocus(index + 3);
+                    },
+                    onFavoriteFocus: (isFocused) {
+                      if (isFocused) {
+                        _updateFocus(index + 3 + channelList.length);
+                      }
+                    },
+                    favoriteIcon: _favoriteIcon(channel.channelName),
+                  );
+                },
+                childCount: channelList.length,
+              ),
             ),
           ],
         ),

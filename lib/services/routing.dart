@@ -1,11 +1,8 @@
-import 'package:flutter/material.dart';
-
 import 'package:deutschliveapp/pages/channelpage_iptv.dart';
-
-import '../pages/home pages/channellistpage.dart';
-import '../pages/home pages/contactpage.dart';
-import '../pages/home pages/favoritespage.dart';
-// import 'package:deutschliveapp/pages/channelpage_youtube.dart';
+import 'package:deutschliveapp/pages/homepages/channellistpage.dart';
+import 'package:deutschliveapp/pages/homepages/contactpage.dart';
+import 'package:deutschliveapp/pages/homepages/favoritespage.dart';
+import 'package:flutter/material.dart';
 
 class NoAnimationRoute<T> extends MaterialPageRoute<T> {
   NoAnimationRoute({

@@ -10,6 +10,7 @@ dependencies:
   device_info_plus: ^11.5.0
   flutter:
     sdk: flutter
+  flutter_in_app_pip: ^1.7.4
   flutter_inappwebview: ^6.0.0
   flutter_launcher_icons: ^0.14.1
   #google_mobile_ads: ^5.1.0
@@ -20,6 +21,7 @@ dependencies:
   lottie: ^3.3.1
   package_info_plus: ^8.0.0
   permission_handler: ^12.0.1
+  simple_pip_mode: ^1.0.2
   provider: ^6.1.2
   share_plus: ^11.1.0
   shared_preferences: ^2.2.0
