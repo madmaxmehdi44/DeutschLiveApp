@@ -88,7 +88,7 @@ class _VideoCardState extends State<VideoCard>
                         padding: const EdgeInsets.symmetric(
                             horizontal: 8, vertical: 8),
                         decoration: BoxDecoration(
-                          color: widget.streamType == "پخش زنده"
+                          color: widget.streamType == "Jezt"
                               ? Colors.red
                               : Colors.black54,
                           borderRadius: BorderRadius.circular(8),

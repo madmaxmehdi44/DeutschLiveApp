@@ -38,7 +38,7 @@ class ChannelListItem extends StatelessWidget {
       children: [
         Expanded(
           child: Padding(
-            padding: const EdgeInsets.all(16.0),
+            padding: const EdgeInsets.all(4.0),
             child: DpadOption(
               onSelect: onChannelSelect,
               onFocus: onChannelFocus,
