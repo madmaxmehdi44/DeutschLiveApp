@@ -188,6 +188,9 @@ class _FavoritesPageState extends State<FavoritesPage> {
                                     defaultValue: []).length;
 
                         return ChannelListItem(
+                          contactpage: storageProvider.storage
+                              .get('favoritedChannelList')[index]
+                              .contactpage,
                           channelName: storageProvider.storage
                               .get('favoritedChannelList')[index],
                           source: storageProvider.storage

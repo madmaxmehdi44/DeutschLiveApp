@@ -1,7 +1,9 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
+
 import 'package:deutschliveapp/models/channel.dart';
-import 'package:deutschliveapp/services/formatting.dart';
 import 'package:deutschliveapp/services/dpadoption.dart';
+import 'package:deutschliveapp/services/formatting.dart';
 
 class ChannelListItem extends StatelessWidget {
   final String channelName;
@@ -13,6 +15,7 @@ class ChannelListItem extends StatelessWidget {
   final Function(bool) onChannelFocus;
   final Function(bool) onFavoriteFocus;
   final Icon favoriteIcon;
+  final String contactpage;
 
   const ChannelListItem({
     super.key,
@@ -25,6 +28,7 @@ class ChannelListItem extends StatelessWidget {
     required this.onChannelFocus,
     required this.onFavoriteFocus,
     required this.favoriteIcon,
+    required this.contactpage,
   });
 
   @override
@@ -51,9 +55,10 @@ class ChannelListItem extends StatelessWidget {
                     child: Row(
                       children: [
                         Padding(
-                          padding: const EdgeInsets.symmetric(horizontal: 8.0),
-                          child: formattingProvider.formatIcon(source),
-                        ),
+                            padding:
+                                const EdgeInsets.symmetric(horizontal: 8.0),
+                            // child: formattingProvider.formatIcon(source),
+                            child: Image.network(contactpage)),
                         Padding(
                           padding: const EdgeInsets.symmetric(horizontal: 8.0),
                           child: Text(

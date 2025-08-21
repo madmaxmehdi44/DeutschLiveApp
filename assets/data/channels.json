@@ -3,58 +3,58 @@
     "channelName": "KIKA",
     "link": "https://kikageohls.akamaized.net/hls/live/2022693/livetvkika_de/master.m3u8",
     "source": "iptv",
-    "contactpage": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/Rbb_Fernsehen_Logo_2017.08.svg/640px-Rbb_Fernsehen_Logo_2017.08.svg.png"
+    "contactpage": "https://i.imgur.com/vZdNp5S.png"
   },
   {
     "channelName": "WOWZA",
     "link": "https://cdn3.wowza.com/1/MHFtazJReW5rOFhP/N2NWNDZ2/hls/live/playlist.m3u8",
     "source": "iptv",
-    "contactpage": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/Rbb_Fernsehen_Logo_2017.08.svg/640px-Rbb_Fernsehen_Logo_2017.08.svg.png"
+    "contactpage": "https://www.wowza.com/wp-content/uploads/Wowza-Logo-Horizontal-2022-Orange-1000x367-1.png"
   },
 
   {
     "channelName": "SCHLAGER DELUXE Deutsche",
     "link": "https://sdn-global-live-streaming-packager-cache.3qsdn.com/26658/26658_264_live.m3u8",
     "source": "iptv",
-    "contactpage": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/Rbb_Fernsehen_Logo_2017.08.svg/640px-Rbb_Fernsehen_Logo_2017.08.svg.png"
+    "contactpage": "https://i.imgur.com/p0W050H.png"
   },
   {
     "channelName": "ARD Alpha",
     "link": "https://mcdn.br.de/br/fs/ard_alpha/hls/de/master.m3u8",
     "source": "iptv",
-    "contactpage": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/Rbb_Fernsehen_Logo_2017.08.svg/640px-Rbb_Fernsehen_Logo_2017.08.svg.png"
+    "contactpage": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/ARD_alpha.svg/512px-ARD_alpha.svg.png"
   },
 
   {
-    "channelName": "VOX DEUTSCH TV LIVE",
+    "channelName": "VOX",
     "link": "https://viamotionhsi.netplus.ch/live/eds/vox/browser-HLS8/vox.m3u8",
     "source": "iptv",
-    "contactpage": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/Rbb_Fernsehen_Logo_2017.08.svg/640px-Rbb_Fernsehen_Logo_2017.08.svg.png"
+    "contactpage": "https://i.imgur.com/QPcmfZb.png"
   },
 
   {
-    "channelName": "DEUTSCHE 1",
+    "channelName": "Das Erste`",
     "link": "https://daserste-live.ard-mcdn.de/daserste/live/hls/de/master.m3u8",
     "source": "iptv",
-    "contactpage": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/Rbb_Fernsehen_Logo_2017.08.svg/640px-Rbb_Fernsehen_Logo_2017.08.svg.png"
+    "contactpage": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d1/ARD_Dachmarke_2014.svg/512px-ARD_Dachmarke_2014.svg.png"
   },
   {
-    "channelName": "DEUTSCHE 2",
+    "channelName": "Dokusat",
     "link": "https://muc3.iptv-playoutcenter.de/dokusat/dokusat1/playlist.m3u8",
     "source": "iptv",
-    "contactpage": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/Rbb_Fernsehen_Logo_2017.08.svg/640px-Rbb_Fernsehen_Logo_2017.08.svg.png"
+    "contactpage": "https://i.imgur.com/GadfTwF.png"
   },
 
   {
-    "channelName": "DEUTSCHE 3",
+    "channelName": "Welt der Wunder TV",
     "link": "https://wdw.iptv-playoutcenter.de/wdw/wdw1/playlist.m3u8",
     "source": "iptv",
-    "contactpage": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/Rbb_Fernsehen_Logo_2017.08.svg/640px-Rbb_Fernsehen_Logo_2017.08.svg.png"
+    "contactpage": "https://i.imgur.com/DLXssJe.png"
   },
   {
-    "channelName": "DEUTSCHE 4",
+    "channelName": "Lilo TV",
     "link": "https://lilo.iptv-playoutcenter.de/lilo/lilo-sat1/playlist.m3u8",
     "source": "iptv",
-    "contactpage": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/Rbb_Fernsehen_Logo_2017.08.svg/640px-Rbb_Fernsehen_Logo_2017.08.svg.png"
+    "contactpage": "https://i.imgur.com/hjSwwVW.png"
   }
 ]

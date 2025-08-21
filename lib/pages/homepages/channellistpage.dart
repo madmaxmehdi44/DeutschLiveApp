@@ -84,9 +84,10 @@ class _ChannelListPageState extends State<ChannelListPage> {
         .get('channelList', defaultValue: <Channel>[]).cast<Channel>();
 
     return Scaffold(
-      drawerEnableOpenDragGesture: false,
+      drawerEnableOpenDragGesture: true,
       appBar: AppBar(
-        title: const Text('Kanalliste'),
+        automaticallyImplyLeading: false,
+        title: Center(child: const Text('Kanalliste')),
       ),
       body: RefreshIndicator(
         onRefresh: _refreshChannelList,
@@ -114,6 +115,7 @@ class _ChannelListPageState extends State<ChannelListPage> {
                   return ChannelListItem(
                     channelName: channel.channelName,
                     source: channel.source,
+                    contactpage: channel.contactpage,
                     isFocused: isChannelFocused,
                     isFavoriteFocused: isStarFocused,
                     onChannelSelect: () => _goToChannel(index),

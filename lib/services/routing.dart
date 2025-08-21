@@ -22,14 +22,13 @@ class NoAnimationRoute<T> extends MaterialPageRoute<T> {
 }
 
 void goToChannelListPage({required BuildContext context, required bool isTV}) {
-  Navigator.push(
-    context,
-    NoAnimationRoute(
-      builder: (context) => ChannelListPage(
-        isTV: isTV,
-      ),
+Navigator.of(context).pushAndRemoveUntil(
+    MaterialPageRoute(
+      builder: (_) => ChannelListPage(isTV: isTV),
     ),
+    (Route<dynamic> route) => false, // حذف همه‌ی صفحات قبلی
   );
+
 }
 
 void goToFavoritesPage({required BuildContext context, required bool isTV}) {

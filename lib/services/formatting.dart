@@ -14,7 +14,7 @@ class FormattingProvider {
     if (source == Source.iptv) {
       return Icon(
         Icons.live_tv_rounded,
-        color: Colors.red[900],
+        color: Colors.yellow[900],
       );
     } else {
       return const Icon(
